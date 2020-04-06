@@ -1,4 +1,5 @@
 from tabulate import tabulate
+from termcolor import colored
 import os
 
 items = []
@@ -7,13 +8,19 @@ def draw_table(items):
     content = [[i, elem] for i,elem in enumerate(items)]
     os.system('cls' if os.name == 'nt' else 'clear')
     print(tabulate(content, headers=["id", "todo list"]))
+
+def strike(text):
+        result = ''
+        for c in text:
+            result = result + c + '\u0336'
+        return colored(result, "green")
     
 
 draw_table(items)
 
 
 while (True):
-    print("1) Add an item    2) Delete item   3) Modify")
+    print("1) Add an item    2) Delete item   3) Modify    4) Mark Done")
     choice = int(input())
     
     if (choice == 1):
@@ -33,6 +40,13 @@ while (True):
         print("Please enter new task")
         new = input()
         items[id]= new
+
+    if (choice == 4):
+        print("Which task is done?")
+        id= int(input())
+        items[id] = strike(items[id])
+        
+
 
     draw_table(items)
 
