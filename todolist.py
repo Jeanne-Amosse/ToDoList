@@ -17,18 +17,18 @@ while (True):
     choice = int(input())
     
     if (choice == 1):
-        print("What task should I add, Sun King?")
+        print("What task should I add?")
         text = input()
         items.append(text)
         
     if (choice == 2):
-        print("Which item do you want me to delete, Master?")
+        print("Which item do you want me to delete?")
         id = int(input())
         del items[id]
         
 
     if (choice == 3):
-        print("Which task should I modify, Human-God?")
+        print("Which task should I modify?")
         id = int(input())
         print("Please enter new task")
         new = input()
